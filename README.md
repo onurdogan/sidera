@@ -1,8 +1,8 @@
 # Sidera
 
-**Sidera** is a modular bioinformatics platform for DNA metabarcoding, environmental DNA (eDNA), and biodiversity data analysis.
+**Sidera** is a modular bioinformatics platform for environmental DNA (eDNA) metabarcoding, and biodiversity data analysis.
 
-Inspired by Dante Alighieri's *Divine Comedy*, Sidera organizes analytical workflows into four major stages:
+Inspired by Dante Alighieri's Divine **Comedy**, Sidera organizes analytical workflows into three major stages:
 
 - 🌲 00 Selva Oscura
 - 🔥 01 Inferno
