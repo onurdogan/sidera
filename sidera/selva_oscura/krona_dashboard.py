@@ -10,11 +10,9 @@ def _(Path):
     # Define project directory
     # --------------------------------------------------------
 
-    project_dir = Path(
-        "/Volumes/Mac/0-onurdogan-proje/TTT_projects/KC_Winter/"
-    )
-    return (project_dir,)
+    project_dir = Path(__file__).resolve().parent.parent
 
+    return (project_dir,)
 
 @app.cell
 def _(project_dir):
@@ -35,26 +33,25 @@ def _(project_dir):
 
 @app.cell
 def _():
-    # --------------------------------------------------------
-    # Import required libraries
-    # --------------------------------------------------------
-
-    # Marimo framework for interactive notebook UI components
     import marimo as mo
-
-    # Data manipulation and table operations
     import pandas as pd
 
-    # File and directory path management
     from pathlib import Path
-
-    # Read uploaded file contents as a byte stream
     from io import BytesIO
 
-    # Run external commands (e.g., Krona ktImportText)
     import subprocess
-    return BytesIO, Path, mo, pd, subprocess
+    import shutil
+    import webbrowser
 
+    return (
+        BytesIO,
+        Path,
+        mo,
+        pd,
+        shutil,
+        subprocess,
+        webbrowser,
+    )
 
 @app.cell
 def _(mo):
@@ -936,46 +933,6 @@ def _(merged_krona_output):
     # --------------------------------------------------------
 
     merged_krona_output.exists()
-    return
-
-
-@app.cell
-def _(mo):
-    # --------------------------------------------------------
-    # Publication export
-    # --------------------------------------------------------
-
-    snapshot_svg = mo.ui.file(
-        label="Upload Krona Snapshot (.svg)"
-    )
-
-    export_format = mo.ui.dropdown(
-        options=[
-            "PNG (300 dpi)",
-            "PNG (600 dpi) ⭐ Recommended",
-            "PNG (1200 dpi)",
-            "PDF (vector)"
-        ],
-        value="PNG (600 dpi) ⭐ Recommended"
-    )
-
-    publication_export = mo.ui.dropdown(
-        options=[
-            "Disabled",
-            "Enabled"
-        ],
-        value="Disabled",
-        label="Publication export"
-    )
-
-    mo.vstack(
-        [
-            mo.md("## Publication Export"),
-            snapshot_svg,
-            export_format,
-            publication_export,
-        ]
-    )
     return
 
 

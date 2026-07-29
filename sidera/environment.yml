@@ -1,0 +1,14 @@
+name: sidera
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.12
+  - pandas
+  - openpyxl
+  - krona
+  - pip
+  - pip:
+      - marimo
