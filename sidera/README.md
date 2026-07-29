@@ -1,167 +1,126 @@
-# Selva Oscura
+# Sidera
 
-Interactive Krona visualisation for DNA metabarcoding biodiversity data.
+**Sidera** is a modular framework for DNA metabarcoding and environmental DNA (eDNA) analysis that combines reproducible bioinformatics workflows, structured data management, and interactive biodiversity visualization.
 
-> "Nel mezzo del cammin di nostra vita  
-> mi ritrovai per una selva oscura..."
->
-> — Dante Alighieri, *Divina Commedia*
->
-> "In the middle of the journey our life **I** [came to]  
-> myself in a dark wood [where] the straight way was lost..."
-> 
-> — The Inferno of Dante Alighieri
-
-Selva Oscura transforms taxon tables into interactive Krona charts.
+The project is inspired by Dante Alighieri's *Divine Comedy*, where each stage of the analytical workflow represents a journey from raw sequencing data to biological interpretation.
 
 ---
 
-## Overview
+## Project Architecture
 
-DNA metabarcoding analyses generate complex taxonomic tables that can be difficult to interpret visually. Selva Oscura provides a lightweight workflow to transform **[TaxonTableTools2](https://github.com/TillMacher/TaxonTableTools2))** taxon tables into interactive **[Krona](https://github.com/marbl/Krona)** charts.
-
-Current workflow:
-# selva-oscura
-Interactive Krona visualisation for [TaxonTableTools2](https://github.com/TillMacher/TaxonTableTools2) outputs.
-
-Current workflow: 
-
-TaxonTableTools2 taxon table -> Selva Oscura -> Interactive Krona chart
+```
+Sidera
+│
+├── 00_selva_oscura
+│   ├── settings
+│   ├── raw_data
+│   └── metadata
+│
+├── 01_inferno
+│   ├── Canto I
+│   ├── Canto II
+│   └── ...
+│
+├── 02_purgatory
+│   ├── ecological analyses
+│   ├── quality control
+│   └── biodiversity metrics
+│
+├── 03_paradiso
+│   ├── visualization
+│   ├── reporting
+│   └── knowledge generation
+│
+├── krona_dashboard
+├── core
+├── database
+└── data
+```
 
 ---
 
-## Features
+## Workflow Philosophy
 
-- Load TaxonTableTools2 taxon tables.
-- Explore hierarchical taxonomic composition.
-- Generate interactive Krona HTML visualisations.
-- Support biodiversity and DNA metabarcoding studies.
+### 00 · Selva Oscura
+
+The "dark forest" where every project begins.
+
+This stage contains:
+
+- project settings
+- metadata
+- sequencing files
+- reference databases
+- workflow configuration
+
+Everything downstream is driven from this central entry point.
 
 ---
 
-## Usage
-## macOS Installation
+### 01 · Inferno
 
-## Option 1:
+Raw sequencing data are transformed into structured biological information.
 
-### Download [zip](https://github.com/onurdogan/selva-oscura/archive/refs/heads/main.zip) 
+Planned modules include:
 
-Download the repository as a **[zip](https://github.com/onurdogan/selva-oscura/archive/refs/heads/main.zip)** file from GitHub and extract it.
+- Demultiplexing
+- Single-end processing
+- Paired-end merging
+- Primer trimming
+- Quality filtering
+- Dereplication
+- Denoising
+- OTU/ASV clustering
+- Taxonomic assignment
 
-Open your terminal in the `selva-oscura` folder
+Each processing step is implemented as an independent **Canto**.
 
-**or** 
+---
 
-```
-cd selva-oscura
-```
+### 02 · Purgatory
 
-**or**
+Data refinement and ecological interpretation.
 
-On macOS, you can open Terminal directly in the project folder:
+Examples:
 
-1. Open the `selva-oscura` folder in Finder.
-2. Right-click the folder.
-3. Select **New Terminal at Folder**.
-4. Run:
+- contamination removal
+- filtering
+- diversity analyses
+- statistical workflows
+- ecological metrics
 
-Install the required Python dependencies from [requirements.txt](https://github.com/onurdogan/selva-oscura/blob/main/requirements.txt):
+---
 
-**then**
+### 03 · Paradiso
 
-[Marimo](https://github.com/marimo-team/marimo) dashboard
+The final interpretation layer.
 
-Open your terminal in the `selva-oscura` folder
+Outputs include:
 
-```
- marimo run marimo/krona_dashboard.py
-```
+- biodiversity reports
+- interactive visualizations
+- Krona dashboards
+- publication-ready figures
+- integrated ecological knowledge
 
-The dashboard will open in your browser.
+---
 
-## Option 2: Conda
+## Components
 
-### Requirements
+### Krona Dashboard
 
-## Requirements
+Interactive visualization module for exploring taxonomic composition generated from metabarcoding workflows.
 
-- ### Option 1: Conda
+---
 
-- With this option, **Selva Oscura** and all required dependencies are installed using **Conda**.
-- If you do not have Conda installed, install **Miniconda** or Anaconda first.
-- After installation, initialize Conda for your shell if needed:
+## Current Status
 
-```
-conda init zsh
-```
+Sidera is currently under active development.
 
-- Restart your terminal before continuing.
+The long-term goal is to provide a complete, modular, reproducible, and user-friendly platform for DNA metabarcoding research.
 
-```
-cd path/to/selva-oscura-main/selva-oscura
-```
-
-Create the environment: 
-
-```
-conda env create -f environment.yml
-
-```
-
-Activate: 
-
-```
-conda activate selva-oscura
-```
-### Krona requirement
-#### Krona Tools
-
-Selva Oscura uses Krona Tools (`ktImportText`) to generate interactive Krona visualisations.
-
-Krona is installed automatically when using the provided Conda environment.
-
-### Workflow:
-- Select a TaxonTableTools2 taxon table
-- Select a sample
-- Generate Krona output
-- Open the interactive HTML chart
-
-
-## Requirements
-### Software
-- Python ≥ 3.11
-- Marimo
-- Pandas
-- Krona Tools
-
-## Installation
-Install Python dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-## Scientific background 
-### TaxonTableTools2
-Selva Oscura uses taxonomic tables generated from [TaxonTableTools2](https://github.com/TillMacher/TaxonTableTools2).
-#### Citation:
-Macher, T. H., Beermann, A. J., & Leese, F. (2021).
-TaxonTableTools—A comprehensive, platform-independent graphical user interface software to explore and visualise DNA metabarcoding data.
-Molecular Ecology Resources.
-https://doi.org/10.1111/1755-0998.13358  
-
-### Krona 
-Interactive visualisation is provided using Krona.
-#### Citation:
-Ondov, B. D., Bergman, N. H., & Phillippy, A. M. (2011).
-Interactive metagenomic visualization in a Web browser.
-BMC Bioinformatics, 12, 385.
-https://doi.org/10.1186/1471-2105-12-385  
-
-## Development status
-Selva Oscura is actively under development.
-Future directions:
-Streamlit user interface
+---
 
 ## License
+
 MIT License.
