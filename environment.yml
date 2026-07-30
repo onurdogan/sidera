@@ -1,0 +1,92 @@
+# Inferno
+# Conda environment for biodiversity and eDNA analysis
+#
+# Create environment:
+#   conda env create -f environment.yml
+#
+# Update existing environment:
+#   conda env update -f environment.yml --prune
+
+name: inferno
+
+channels:
+  # Community-maintained scientific packages
+  - conda-forge
+
+dependencies:
+
+  # ---------------------------------------------------------------------------
+  # Core
+  # ---------------------------------------------------------------------------
+
+  # Python interpreter
+  - python=3.12
+
+  # Allows installation of packages unavailable on conda
+  - pip
+
+  # ---------------------------------------------------------------------------
+  # Data manipulation
+  # ---------------------------------------------------------------------------
+
+  # DataFrame operations
+  - pandas
+
+  # Numerical computing
+  - numpy
+
+  # High-performance DataFrames
+  - polars
+
+  # Apache Arrow / Parquet support
+  - pyarrow
+
+  # Embedded analytical database
+  - duckdb
+
+  # ---------------------------------------------------------------------------
+  # Statistics and biodiversity analysis
+  # ---------------------------------------------------------------------------
+
+  # Scientific computing
+  - scipy
+
+  # Machine learning and ordination methods
+  - scikit-learn
+
+  # Biodiversity and ecological analyses
+  - scikit-bio
+
+  # ---------------------------------------------------------------------------
+  # Visualization
+  # ---------------------------------------------------------------------------
+
+  # Publication-quality figures
+  - matplotlib
+
+  # Interactive visualizations
+  - plotly
+
+  # ---------------------------------------------------------------------------
+  # File support
+  # ---------------------------------------------------------------------------
+
+  # Read and write Microsoft Excel files
+  - openpyxl
+
+  # ---------------------------------------------------------------------------
+  # Interactive application
+  # ---------------------------------------------------------------------------
+
+  # Reactive notebook and application framework
+  - marimo
+
+  # ---------------------------------------------------------------------------
+  # Packages installed with pip
+  # ---------------------------------------------------------------------------
+
+  - pip:
+
+      # Export Plotly figures as PNG, PDF and SVG
+      - kaleido
+

@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.23.15"
+__generated_with = "0.17.6"
 app = marimo.App(width="medium")
 
 
@@ -11,7 +11,6 @@ def imports():
     import marimo as mo
     from pathlib import Path
     import shutil
-
     return Path, mo
 
 
@@ -148,35 +147,25 @@ def project_creator(mo, new_project_path, project_name):
 
             # 🔥 Inferno
 
-            "01_inferno/canto_01_demultiplexing/input/raw_data",
-            "01_inferno/canto_01_demultiplexing/output",
-
-            "01_inferno/canto_02_single_end/input",
-            "01_inferno/canto_02_single_end/output",
-
-            "01_inferno/canto_03_paired_end_merging/input",
-            "01_inferno/canto_03_paired_end_merging/output",
-
-            "01_inferno/canto_04_primer_trimming/input",
-            "01_inferno/canto_04_primer_trimming/output",
-
-            "01_inferno/canto_05_quality_filtering/input",
-            "01_inferno/canto_05_quality_filtering/output",
-
-            "01_inferno/canto_06_dereplication/input",
-            "01_inferno/canto_06_dereplication/output",
-
-            "01_inferno/canto_07_clustering/input",
-            "01_inferno/canto_07_clustering/output",
-
-            "01_inferno/canto_08_denoising/input",
-            "01_inferno/canto_08_denoising/output",
-
-            "01_inferno/canto_09_chimera_removal/input",
-            "01_inferno/canto_09_chimera_removal/output",
-
-            "01_inferno/canto_10_taxonomic_assignment/input",
-            "01_inferno/canto_10_taxonomic_assignment/output",
+            "01_inferno/canto_01_demultiplexing",
+        
+            "01_inferno/canto_02_single_end",
+      
+            "01_inferno/canto_03_paired_end_merging",
+      
+            "01_inferno/canto_04_primer_trimming",
+      
+            "01_inferno/canto_05_quality_filtering",
+      
+            "01_inferno/canto_06_dereplication",
+      
+            "01_inferno/canto_07_clustering",
+      
+            "01_inferno/canto_08_denoising",
+      
+            "01_inferno/canto_09_chimera_removal",
+      
+            "01_inferno/canto_10_taxonomic_assignment",
 
 
             # ⚗️ Purgatory

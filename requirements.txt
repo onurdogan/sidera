@@ -1,0 +1,66 @@
+# Inferno
+# Python dependencies for biodiversity and eDNA analysis
+
+
+# -----------------------------------------------------------------------------
+# Core data manipulation
+# -----------------------------------------------------------------------------
+
+# DataFrame operations and tabular data processing
+pandas
+
+# Numerical computing foundation
+numpy
+
+# High-performance DataFrame processing
+polars
+
+# Apache Arrow and Parquet data format support
+pyarrow
+
+# Embedded analytical database engine
+duckdb
+
+
+# -----------------------------------------------------------------------------
+# Statistics and biodiversity analysis
+# -----------------------------------------------------------------------------
+
+# Scientific computing functions
+scipy
+
+# Machine learning and multivariate analysis tools
+scikit-learn
+
+# Ecological and biodiversity analysis functions
+scikit-bio
+
+
+# -----------------------------------------------------------------------------
+# Visualization
+# -----------------------------------------------------------------------------
+
+# Publication-quality static figures
+matplotlib
+
+# Interactive data visualization
+plotly
+
+# Export Plotly figures to PNG, PDF, and SVG formats
+kaleido
+
+
+# -----------------------------------------------------------------------------
+# File format support
+# -----------------------------------------------------------------------------
+
+# Read and write Excel files
+openpyxl
+
+
+# -----------------------------------------------------------------------------
+# Interactive application
+# -----------------------------------------------------------------------------
+
+# Reactive notebook and application framework
+marimo
