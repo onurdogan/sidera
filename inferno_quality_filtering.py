@@ -593,50 +593,5 @@ def _(lengths, pd):
     return
 
 
-@app.cell
-def _(Path):
-    PRIMER_LOG_DIR = Path(
-        "/Users/onurdogan/sidera-main/KÇ_Winter_2026/01_inferno/canto_04_primer_trimming/logs"
-    )
-
-    list(PRIMER_LOG_DIR.glob("*.log"))[:5]
-    return (PRIMER_LOG_DIR,)
-
-
-@app.cell
-def _(PRIMER_LOG_DIR):
-    # 🔍 Inspect first cutadapt primer trimming log
-
-    first_log = list(
-        PRIMER_LOG_DIR.glob("*.log")
-    )[0]
-
-    print(first_log.read_text())
-    return
-
-
-@app.cell
-def _(Path, SeqIO, gzip):
-    # 🔍 Inspect primer trimmed reads
-    trimmed_file_check = Path(
-        "/Users/onurdogan/sidera-main/KÇ_Winter_2026/01_inferno/canto_04_primer_trimming/D1_R1_trimmed.fastq.gz"
-    )
-
-    with gzip.open(trimmed_file_check, "rt") as fq_handle_check:
-
-        for i, seq_record_check in enumerate(
-            SeqIO.parse(fq_handle_check, "fastq")
-        ):
-
-            print(seq_record_check.id)
-            print("Length:", len(seq_record_check.seq))
-            print(seq_record_check.seq)
-            print()
-
-            if i == 5:
-                break
-    return
-
-
 if __name__ == "__main__":
     app.run()
