@@ -493,7 +493,7 @@ def _(Path, cutadapt_results):
     cutadapt_summary = summarize_primer_trimming(cutadapt_results)
 
     cutadapt_summary
-    return
+    return (pd,)
 
 
 @app.cell
@@ -505,6 +505,11 @@ def _(result):
 @app.cell
 def _(fastq_selector, trimmed_paths):
     len(fastq_selector.value), len(trimmed_paths)
+    return
+
+
+@app.cell
+def _():
     return
 
 
