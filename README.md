@@ -37,18 +37,20 @@ The sequence-processing stage of Sidera.
 
 Each processing step is organized as an independent **Canto**, allowing workflows to be developed, tested, and executed as modular components.
 
-The current repository includes:
+The current Inferno workflow includes:
 
-* **Primer trimming**
-* **Quality filtering**
+1. **Canto I — Demultiplexing**
+2. **Canto II — Single-end processing**
+3. **Canto III — Paired-end merging**
+4. **Canto IV — Primer trimming**
+5. **Canto V — Quality filtering**
+6. **Canto VI — Dereplication**
 
 The broader Inferno workflow is being developed to include additional steps such as:
 
-* demultiplexing
-* paired-end processing
-* dereplication
+* clustering
 * denoising
-* ASV/OTU processing
+* chimera removal
 * taxonomic assignment
 
 ### 02 · Purgatory
@@ -84,13 +86,21 @@ The long-term vision includes:
 
 `inferno_primer_trimming.py`
 
-A marimo-based workflow for primer-trimming of metabarcoding sequencing data.
+A marimo-based workflow for primer trimming of metabarcoding sequencing data.
 
 ### Inferno — Quality Filtering
 
 `inferno_quality_filtering.py`
 
-A marimo-based workflow for quality filtering of processed sequencing reads.
+A marimo-based workflow for quality filtering of sequencing reads using VSEARCH.
+
+### Inferno — Dereplication
+
+`inferno_dereplication.py`
+
+A marimo-based workflow for dereplication of quality-filtered sequences using VSEARCH.
+
+Dereplicated sequences are generated as compressed FASTA files with abundance information retained in sequence headers.
 
 ### Krona Dashboard
 
@@ -139,7 +149,7 @@ conda env create -f environment.yml
 Activate the environment:
 
 ```bash
-conda activate inferno
+conda activate sidera
 ```
 
 Alternatively, Python dependencies can be installed with:
@@ -154,16 +164,22 @@ pip install -r requirements.txt
 
 The current Inferno workflows are implemented as **marimo applications**.
 
-For example:
+### Canto IV — Primer Trimming
 
 ```bash
 marimo run inferno_primer_trimming.py
 ```
 
-and:
+### Canto V — Quality Filtering
 
 ```bash
 marimo run inferno_quality_filtering.py
+```
+
+### Canto VI — Dereplication
+
+```bash
+marimo run inferno_dereplication.py
 ```
 
 For interactive editing:
@@ -172,10 +188,12 @@ For interactive editing:
 marimo edit inferno_primer_trimming.py
 ```
 
-or:
-
 ```bash
 marimo edit inferno_quality_filtering.py
+```
+
+```bash
+marimo edit inferno_dereplication.py
 ```
 
 The exact input files, parameters, and workflow configuration are defined within each Canto.
@@ -184,21 +202,42 @@ The exact input files, parameters, and workflow configuration are defined within
 
 ## Project Structure
 
+A Sidera project is organized into four analytical stages:
+
+```text
+project/
+├── 00_selva_oscura/          # Project initialization and data organization
+│
+├── 01_inferno/               # Sequence-processing workflows
+│   ├── canto_01_demultiplexing/
+│   ├── canto_02_single_end/
+│   ├── canto_03_paired_end_merging/
+│   ├── canto_04_primer_trimming/
+│   ├── canto_05_quality_filtering/
+│   ├── canto_06_dereplication/
+│   ├── canto_07_clustering/
+│   ├── canto_08_denoising/
+│   ├── canto_09_chimera_removal/
+│   └── canto_10_taxonomic_assignment/
+│
+├── 02_purgatory/             # Ecological and biodiversity analysis
+└── 03_paradiso/              # Visualization and interpretation
+```
+
+The repository itself contains the workflow applications and supporting components:
+
 ```text
 sidera/
-│
-├── 00_selva_oscura/          # Project initialization and data organization
-├── 01_inferno/               # Sequence-processing workflows
-├── 02_purgatory/             # Ecological and biodiversity analysis
-├── 03_paradiso/              # Visualization and interpretation
-│
-├── krona_dashboard/           # Interactive taxonomic visualization
-├── core/                      # Core functionality
-├── database/                  # Structured data resources
-├── data/                      # Project data
-│
 ├── inferno_primer_trimming.py
 ├── inferno_quality_filtering.py
+├── inferno_dereplication.py
+│
+├── sidera/
+│   └── krona_dashboard/
+│
+├── core/
+├── database/
+├── data/
 │
 ├── environment.yml
 ├── requirements.txt
@@ -233,7 +272,7 @@ The computational workflow is designed around biological and ecological question
 
 🚧 **Sidera is under active development.**
 
-The current public repository represents an early stage of the framework. The Inferno sequence-processing workflow is currently the main area of development, while the Purgatory and Paradiso stages are being progressively developed.
+The current public repository represents an early stage of the framework. The **Inferno** sequence-processing workflow is currently the main area of development, while the **Purgatory** and **Paradiso** stages are being progressively developed.
 
 ---
 
