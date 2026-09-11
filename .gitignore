@@ -24,6 +24,10 @@ sidera/
 *.fastq.gz
 *.fq
 *.fq.gz
+*.fasta
+*.fasta.gz
+*.fa
+*.fa.gz
 
 # Large databases
 *.db
@@ -38,4 +42,5 @@ krona_dashboard/outputs/
 
 # Temporary files
 tempCodeRunnerFile.py
+test_run/
 .DS_Store
